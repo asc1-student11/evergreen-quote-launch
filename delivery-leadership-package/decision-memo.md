@@ -25,3 +25,7 @@ A fast estimate is useful only if the customer can trust the amount they see. Ma
 ## What would change my mind
 
 If the two rate tables drift again, or a later product decision requires rates to change frequently, I would recommend moving rate ownership to one centrally managed source before expanding the product.
+
+
+## Co-Pilot Oversight
+Copilot’s suggested rows followed the existing quote shape and used coverage types already supported by the schema. I reviewed them before accepting rather than treating the suggestion as verified. The seed script then ran successfully from the api/ directory. That confirms the seed data loaded, but it does not by itself prove that the premiums match the API’s current calculation or that the client works with those rows. I’ll rely on the schema and the API/client checks for those separate assurances.
