@@ -1,36 +1,38 @@
 # Evergreen Quote: Vision Brief
 
-> Copy this file into `delivery-leadership-package/vision-brief.md` in your repo and fill it in. Target length: 1 page (~300 words). Write for a Liberty Mutual VP who has 90 seconds.
-
 ## Product
-**Name:** Evergreen Insurance Quote (the launch: full-stack delivery)
-**Delivery week:** Final
-**Delivery Lead:** _your name (and pair, if any)_
-**Engineering team (represented by):** _link to your Evergreen Quote project repo_
-**GitHub Project board:** _link_
+
+**Name:** Evergreen Insurance Quote — full-stack launch  
+**Delivery week:** Final capstone  
+**Delivery Lead:** Samuel Ogunyemi
+**Engineering team (represented by):** https://github.com/asc1-student11/evergreen-quote-launch
+**GitHub Project board:** https://github.com/users/asc1-student11/projects/8/views/1
 
 ## Who is the customer?
-_One paragraph. Be specific. Not "everyone"; name the segment, the moment, and the alternative they have today._
+
+Our first customer is someone shopping for insurance for the first time, likely on a phone and comparing options. They want a quick, believable estimate without creating an account or making a phone call. The partner pilot team is another customer: it needs a way to request quote information through GraphQL. Operations needs a service that can be tested and run in a container and on the company’s Kubernetes platform. On Friday, our managers are also an audience: they need to see the customer journey clearly, without having watched the build.
 
 ## What pain does Evergreen Quote remove?
-_One paragraph. Name the pain in customer words, not product words. The program built a page that estimates and a service that remembers, separately; what does wiring them together change for the customer?_
 
-## What does "good" look like at end of the week?
-_3–5 bullets. Each one should be observable: something a stakeholder could check on Thursday afternoon._
+Today, the quote page can estimate a premium, but it forgets the customer’s quote when the page reloads. A separate service can store quotes, but the customer-facing app has never used it. Connecting the two means a shopper can move from the marketing page to an estimate, save the quote, and come back to find it still there. The estimate and the saved premium should agree, so the customer sees one dependable answer rather than two.
 
-- 
-- 
-- 
+## What does “good” look like at the end of the week?
+
+- A visitor can follow the landing-page link to the quote app.
+- The app loads recent quotes from the API, and a newly saved quote remains after a reload.
+- The displayed estimate and saved premium agree at the launch rates.
+- The API runs as `evergreen-quote-api:2.0` and is demonstrated with three replicas on the local Kubernetes cluster.
+- Both CI jobs are green on the reviewed change merged to `main`.
 
 ## What are we explicitly NOT doing this week?
-_3–5 bullets. This is where you protect your team from scope creep._
 
-- 
-- 
-- 
+- Adding authentication, accounts, or payments.
+- Building a real-time or external rate engine.
+- Adding product features that are not required for the launch.
+- Making Friday’s required demo depend on AWS or the gated EKS exercise.
 
 ## How will we know if it worked?
-_2–3 measures. Numeric if possible._
 
-- 
-- 
+- The saved quote is still visible after reloading the app.
+- The API tests and client type-check/build pass, and both CI jobs are green on the merge commit.
+- The five-minute showcase can demonstrate the journey from landing page to saved quote on the local cluster.
